@@ -16,7 +16,12 @@ async function getData(page = 1, query) {
     per_page: 12,
   };
 
-  return await axios.get('', { params });
+  try {
+    const response = await axios.get('', { params });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
 }
 
 export { getData };

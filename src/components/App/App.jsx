@@ -1,26 +1,22 @@
-import React, { Component } from 'react';
-import { AppWrap } from "./App.styled";
+import { useState } from 'react';
+import { AppWrap } from './App.styled';
 
 import Searchbar from 'components/Searchbar/Searchbar';
 import ImageGallery from 'components/ImageGallery/ImageGallery';
 
-class App extends Component {
-  state = {
-    searhImage: '',
+const App = () => {
+  const [search, setSearch] = useState('');
+
+  const handleSearch = search => {
+    setSearch(search);
   };
 
-  handleSearch = searhImage => {
-    this.setState({ searhImage });
-  };
-
-  render() {
-    return (
-      <AppWrap>
-        <Searchbar handleSearch={this.handleSearch} />
-        <ImageGallery searhImage={this.state.searhImage} />
-      </AppWrap>
-    );
-  }
-}
+  return (
+    <AppWrap>
+      <Searchbar handleSearch={handleSearch} />
+      <ImageGallery searhImage={search} />
+    </AppWrap>
+  );
+};
 
 export default App;
