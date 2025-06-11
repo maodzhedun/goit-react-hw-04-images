@@ -18,6 +18,7 @@ async function getData(page = 1, query) {
 
   try {
     const response = await axios.get('', { params });
+
     return response.data;
   } catch (error) {
     throw new Error(error.message);

@@ -26,6 +26,8 @@ const ImageGallery = ({ searchImage }) => {
 
   useEffect(() => {
     if (searchImage) {
+      setImages([]);
+      setPage(1);
       fetchImages(searchImage, 1);
     }
   }, [searchImage]);
@@ -38,7 +40,6 @@ const ImageGallery = ({ searchImage }) => {
 
   const fetchImages = async (query, page) => {
     setStatus(PENDING);
-    console.log(query, page);
 
     try {
       const data = await getData(page, query);

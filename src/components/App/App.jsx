@@ -14,7 +14,7 @@ const App = () => {
   return (
     <AppWrap>
       <Searchbar handleSearch={handleSearch} />
-      <ImageGallery searhImage={search} />
+      <ImageGallery searchImage={search} />
     </AppWrap>
   );
 };
